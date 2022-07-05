@@ -1,0 +1,16 @@
+# add files that shouldn't be tracked by git here. ## https://www.pluralsight.com/guides/how-to-use-gitignore-file
+
+.idea/
+venv/
+logs/
+__pycache__/
+.vscode/
+.workspace/
+migrations/
+.senv
+*.log
+*.DS_Store
+*.db
+base/__pycache__
+/__pycache__/**
+**__pycache__**

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='assets/css/bootstrap.css') }}"
+    />
+    <script src="{{ url_for('static', filename='assets/js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bs/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/index.js') }}"></script>
+    <link rel="stylesheet" href="static/assets/css/style.css" />
+  </head>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="content">
+        <p style="color: red">
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          message in messages %}
+          <b>{{ message }}</b>
+          {% endfor %} {% endif %} {% endwith %}
+        </p>
+        <div>
+          {% if user_profile %}
+          <p>
+            Logged in as {{ user_profile.firstname }},
+            <a href="/logout">logout</a>
+          </p>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- Navbar content -->
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/logout">Home</a>
+                  </li>
+                  <li class="nav-item"></li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/admin"
+                      >Admin page</a
+                    >
+                  </li>
+                 
+              </div>
+            </div>
+          </nav>
+          {% else %}
+          <p></p>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- Navbar content -->
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"></a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item"></li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login"
+                      >Login</a
+                    >
+                  </li>
+                  <li class="nav-item"></li>
+                  <li class="nav-item"></li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="/register"
+                      >Register</a
+                    >
+                  </li>
+                  <li class="nav-item"></li>
+                </ul>
+  
+                <form class="d-flex">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          {% endif %}
+        </div>
+
+        
+
+        <div class="container">
+          <h1 class="text-center">NFT Collection</h1>
+
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape1.jpg" />
+                <h4>Sailor</h4>
+               
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape2.jpg" />
+                <h4>Laser Eyes</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape3.jpg" />
+                <h4>King Ape</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape4.jpg" />
+                <h4>Astronaut</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape5.jpg" />
+                <h4>Gold ape</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape6.jpg" />
+                <h4>Weird Cap</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape7.jpg" />
+                <h4>Blue ape</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape8.jpg" />
+                <h4>Angel ape</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape9.jpeg" />
+                <h4>6ix9ine</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape10.gif" />
+                <h4>Punk ape</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape11.jpg" />
+                <h4>Demon Ape</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="my-col">
+                <img src="static/img/ape12.png" />
+                <h4>Flashy ape</h4>
+               
+              </div>
+            </div>
+          </div>
+          <div class="row" id="myRow"></div>
+        </div>
+
+        <div class="m-3">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for item in products %}
+            <div class="col">
+              <div class="card shadow-sm">
+                {% if not item['image'] %}
+                <img
+                  src="{{ url_for('static', filename='img/elsa.png') }}"
+                  style="width: 100%"
+                />
+                {% else %}
+                <img src="/uploads/{{ item['picture'] }}" style="width: 100%" />
+                {% endif %}
+
+                <div class="card-body">
+                  <p class="card-text mb-0">{{ item['title'] }}</p>
+                  <p class="card-text" style="margin-top: 0">
+                    &#8358; {{ item['price'] }}
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <a
+                        href="/edit/{{ item.id }}"
+                        class="btn btn-sm btn-secondary"
+                        >Edit</a
+                      >
+                      <a
+                        href="/delete/{{ item.id }}"
+                        type="button"
+                        class="btn btn-sm btn-danger"
+                        >Delete</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
