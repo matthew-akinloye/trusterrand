@@ -16,7 +16,6 @@ from user_functions import check_user
 @app.route('/')
 def homepage():
     user_profile = check_user()
-    return ('homepage')
     return render_template('home.html', user_profile=user_profile)
 
 
@@ -24,6 +23,9 @@ def homepage():
 def login_page():
     return render_template('login.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/logout')
 def logout():

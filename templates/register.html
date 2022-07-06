@@ -15,21 +15,19 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&amp;display=swap" rel="stylesheet">
 
-    <!--icon css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/themify.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/font-awesome.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/themify.css') }}">
+      <!--Slick slider css-->
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick-theme.css') }}">
+      <!--Animate css-->
 
-    <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/slick-theme.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.css') }}">
+      <!-- Bootstrap css -->
 
-
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-
-
-    <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/color2.css" media="screen" id="color">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
+      <!-- Theme css -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/color1.css' ) }}">
 </head>
 <body>
 
@@ -1561,32 +1559,32 @@
 <!-- add to  setting bar  end-->
 
 <!-- latest jquery-->
-<script src="../assets/js/jquery-3.3.1.min.js" ></script>
+
+<script src="{{ url_for('static', filename='assets/js/jquery-3.3.1.min.js') }}" ></script>
 
 <!-- menu js-->
-<script src="../assets/js/menu.js"></script>
-
+<script src="{{ url_for('static', filename='assets/js/menu.js') }}"></script>
 
 
 <!-- tool tip js -->
-<script src="../assets/js/tippy-popper.min.js"></script>
-<script src="../assets/js/tippy-bundle.iife.min.js"></script>
+<script src="{{ url_for('static', filename='assets/js/tippy-popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/tippy-bundle.iife.min.js') }}"></script>
 
 <!-- popper js-->
-<script src="../assets/js/popper.min.js" ></script>
+<script src="{{ url_for('static', filename='assets/js/popper.min.js') }}" ></script>
 
-<!-- father icon -->
-<script src="../assets/js/feather.min.js"></script>
-<script src="../assets/js/feather-icon.js"></script>
+<!-- feather icon -->
+<script src="{{ url_for('static', filename='assets/js/feather.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/feather-icon.js') }}"></script>
 
 <!-- slick js-->
-<script  src="../assets/js/slick.js"></script>
+<script  src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
 
 <!-- Bootstrap js-->
-<script src="../assets/js/bootstrap.js" ></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap.js') }}" ></script>
 
 <!-- Theme js-->
-<script src="../assets/js/script.js" ></script>
+<script src="{{ url_for('static', filename='assets/js/script.js') }}" ></script>
 
 </body>
 </html>
