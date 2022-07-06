@@ -22,9 +22,20 @@ class Products(db.Model):
     price = db.Column(db.Numeric(10, 2), default=0)
     description = db.Column(db.Text)
     category = db.Column(db.String(12))
-    picture = db.Column(db.Text)
+    pictures = db.Column(db.Text)
     created = db.Column(db.DateTime, default=datetime.now())
-    user_id = db.Column(db.Integer, index=True)
     
     def __repr__(self):
         return "<Product {}>".format(self.title)
+
+
+class Addresses(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    user_id = db.Column(db.Integer, index=True)
+    address = db.Column(db.String(200))
+    street = db.Column(db.String(50))
+    city = db.Column(db.String(50))
+    state = db.Column(db.String(5))
+
+    def __repr__(self):
+        return "<Address {}>".format(self.address)
