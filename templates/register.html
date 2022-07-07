@@ -824,31 +824,40 @@
             <div class="col-lg-4 offset-lg-4">
                 <div class="theme-card">
                     <h3 class="text-center">Create account</h3>
-                    <form class="theme-form">
+                      <form method="post" action="/do-sign-up" class="theme-form">
+                        <p style="color:red;">
+                          {% with messages = get_flashed_messages() %}
+                          {% if messages %}
+                              {% for message in messages %}
+                                  <b>{{ message }}</b>
+                              {% endfor %}
+                          {% endif %}
+                          {% endwith %}
+                      </p>
                         <div class="row g-3">
                             <div class="col-md-12 form-group">
                                 <label for="email">First Name</label>
-                                <input type="text" class="form-control" id="fname" placeholder="First Name" required="">
+                                <input type="text" class="form-control" name="firstname" id="fname" placeholder="First Name" >
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="review">Last Name</label>
-                                <input type="text" class="form-control" id="lname" placeholder="Last Name" required="">
+                                <input type="text" class="form-control" name="lastname" id="lname" placeholder="Last Name" >
                             </div>
                         </div>
                         <div class="row g-3">
                             <div class="col-md-12 form-group">
                                 <label >email</label>
-                                <input type="text" class="form-control"  placeholder="Email" required="">
+                                <input type="text" class="form-control" name="email" placeholder="Email" >
                             </div>
                             <div class="col-md-12 form-group">
                                 <label >Password</label>
-                                <input type="password" class="form-control"  placeholder="Enter your password" required="">
+                                <input type="password" class="form-control" name="password" placeholder="Enter your password">
                             </div>
-                            <div class="col-md-12 form-group"><a href="javascript:void(0)" class="btn btn-normal">create Account</a></div>
+                            <div class="col-md-12 form-group"><input type="submit" class="btn btn-normal"></div>
                         </div>
                         <div class="row g-3">
                             <div class="col-md-12 ">
-                                <p >Have you already account? <a href="login.html" class="txt-default">click</a> here to &nbsp;<a href="login.html" class="txt-default">Login</a></p>
+                                <p >Have you already account? <a href="login" class="txt-default">click</a> here to &nbsp;<a href="login.html" class="txt-default">Login</a></p>
                             </div>
                         </div>
                     </form>

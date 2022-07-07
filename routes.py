@@ -54,7 +54,7 @@ def login():
             session['password'] = password
             session['id'] = correct_user.id
             
-            response = redirect(url_for('admin_page'))
+            response = redirect(url_for('homepage'))
             response.set_cookie('user_id', str(correct_user.id),
                                 max_age=timedelta(hours=24))
             response.set_cookie('pw', password_hash,
@@ -62,7 +62,7 @@ def login():
             return response
 
     flash("Invalid email or password")
-    return ('login')
+   
     return redirect(url_for('login_page'))
 
 
@@ -84,24 +84,22 @@ def do_signup():
     firstname = request.form['firstname']
     lastname = request.form['lastname']
     email = request.form['email']
-    phone = request.form['phone']
+    
     password = request.form['password']
-    password2 = request.form['password2']
+    
     if firstname == '' or lastname == '' or email == '' or password == '':
         flash('All fields are required!')
         return redirect(url_for('register_page'))
-    if password != password2:
-        flash('Passwords do not match')
-        return redirect(url_for('register_page'))
+    
     password_hash = hashlib.sha256(password.encode()).hexdigest()
 
     user_exist = User.query.filter_by(email=email).first()
     if user_exist is not None:
-        flash('Ooops, email already exist :(')
+        flash('Ooops, email already exist ')
         return redirect(url_for('register_page'))
 
     new_user = User(firstname=firstname, lastname=lastname, email=email,
-                    password_hash=password_hash, phone=phone)
+                    password_hash=password_hash)
     db.session.add(new_user)
     db.session.commit()
     # save session
