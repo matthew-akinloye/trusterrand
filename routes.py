@@ -5,6 +5,7 @@ from datetime import timedelta
 from flask import render_template, request, flash, session, redirect, url_for
 import hashlib
 
+from werkzeug.utils import secure_filename
 
 from config import Config
 from index import db, app
