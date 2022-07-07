@@ -23,11 +23,9 @@ def homepage():
 def login_page():
     return render_template('login.html')
 
-
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
-
 
 @app.route('/logout')
 def logout():
@@ -66,6 +64,7 @@ def login():
     flash("Invalid email or password")
     return ('login')
     return redirect(url_for('login_page'))
+
 
 
 @app.route('/product/<pid>')
