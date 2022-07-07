@@ -28,7 +28,7 @@
 
       <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
       <!-- Theme css -->
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/color1.css'  media="screen" id="color") }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/color1.css' ) }}">
       
 
   
@@ -610,18 +610,7 @@
                                              <li><a href="category-page(left-sidebar).html"> <img
                                                       src="../assets/images/layout-1/nav-img/08.png"
                                                       alt="catergory-product"> Sports</a></li>
-                                             <li><a href="category-page(left-sidebar).html"> <img
-                                                      src="../assets/images/layout-1/nav-img/09.png"
-                                                      alt="catergory-product"> Bags, Luggage</a></li>
-                                             <li><a href="category-page(left-sidebar).html"> <img
-                                                      src="../assets/images/layout-1/nav-img/10.png"
-                                                      alt="catergory-product"> Movies, Music </a></li>
-                                             <li><a href="category-page(left-sidebar).html"> <img
-                                                      src="../assets/images/layout-1/nav-img/11.png"
-                                                      alt="catergory-product"> Video Games</a></li>
-                                             <li><a href="category-page(left-sidebar).html"> <img
-                                                      src="../assets/images/layout-1/nav-img/12.png"
-                                                      alt="catergory-product"> Toys, Baby Products</a></li>
+                                       
                                           </ul>
                                        </li>
                                        <li> <a class="mor-slide-click">mor category <i
@@ -997,10 +986,12 @@
                                  <a href="product-page(left-sidebar).html">
                                     <img src="../assets/images/layout-1/media-banner/3.jpg" class="img-fluid  "
                                        alt="banner">
-                                 </a>
+                                 </a>  jhbjbhbhjuh
                                  <div class="media-body">
+                                    {% for product in Products %}
                                     <div class="media-contant">
                                        <div>
+                                          {['picture']}
                                           <div class="product-detail">
                                              <ul class="rating">
                                                 <li><i class="fa fa-star"></i></li>
@@ -1010,9 +1001,9 @@
                                                 <li><i class="fa fa-star-o"></i></li>
                                              </ul>
                                              <a href="product-page(left-sidebar).html">
-                                                <p> Women's Self Design</p>
+                                                <p> {['title']}</p>
                                              </a>
-                                             <h6>$70.00</h6>
+                                             <h6>{['price']}</h6>
                                           </div>
                                           <div class="cart-info">
                                              <button class="tooltip-top" data-tippy-content="Add to cart"
@@ -1037,7 +1028,10 @@
                                           </div>
                                        </div>
                                     </div>
-                                 </div>
+                               
+                               
+                               
+                                    {% endfor %}  </div>
                               </div>
                            </div>
                            
@@ -2907,22 +2901,22 @@
 
 
       <!-- latest jquery-->
-      <script src="../assets/js/jquery-3.3.1.min.js"></script>
+      <script src="{{ url_for('static', filename='assets/js/jquery-3.3.1.min.js') }}"></script>
       <!-- slick js-->
-      <script src="../assets/js/slick.js"></script>
-
+      <script src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
       <!-- tool tip js -->
-      <script src="../assets/js/tippy-popper.min.js"></script>
-      <script src="../assets/js/tippy-bundle.iife.min.js"></script>
+    
+      <script src="{{ url_for('static', filename='assets/js/tippy-popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='assets/js/tippy-bundle.iife.min.js') }}"></script>
       <!-- popper js-->
-      <script src="../assets/js/popper.min.js"></script>
+      <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
       <!-- menu js-->
-      <script src="../assets/js/menu.js"></script>
-      <!-- timer js -->
-      <script src="../assets/js/timer2.js"></script>
-
+      <script src="{{ url_for('static', filename='assets/js/menu.js') }}"></script>
+      <!-- timer js --> 
+      <script src="{{ url_for('static', filename='assets/js/timer2.js') }}"></script>
       <!-- Bootstrap js-->
-      <script src="../assets/js/bootstrap-notify.min.js"></script>
+   
+      <script src="{{ url_for('static', filename='assets/js/bootstrap-notify.min.js') }}"></script>     
       <script src="{{ url_for('static', filename='assets/js/feather-icon.js') }}"></script>
       <!-- father icon -->
       <script src="{{ url_for('static', filename='assets/js/feather-icon.js') }}"></script>
