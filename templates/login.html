@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediforte online-login</title>
+     
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0000;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape{
+    background: linear-gradient(
+        yellow,
+        green
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        yellow,
+        green
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 520px;
+    width: 400px;
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    border: 2px solid green;
+    box-shadow: 0 0 10px green;
+    padding: 50px 35px;
+    
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    
+    letter-spacing: 0.5px;
+    outline: none;
+    border: 1px black;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+form p{
+    text-align: center;
+    color: red;
+}
+
+
+form h2{
+    text-align: center;
+}
+form h5{
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: green;
+}
+
+
+
+    </style>
+</head>
+<body  class="background">
+    <div>
+       
+       
+    <form method="post" action="/do-login">
+        <h2>LOGIN</h2>
+        <h5>login with your email or username</h5>
+        <label>Email <br>
+            <input type="email"  name="email" placeholder="Enter Your Email">
+        </label>
+    
+        <label>Password <br>
+            <input type="password" name="password" placeholder="password">
+          </label><br>
+             
+            <br>
+            
+        <input type="submit" value="submit" class="button">
+        <br><br><br>
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <b>{{ message }}</b>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </p>
+    </form>
+    </div>
+</body>
+</html>
