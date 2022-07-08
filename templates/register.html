@@ -121,7 +121,7 @@ input{
 </head>
 <body  class="background">
     <form method="post" action="/do-sign-up">
-    <div><br><br><br>
+    <div><br>
         <h3>SIGN UP</h3>
        
         <label>First name <br>
@@ -142,11 +142,10 @@ input{
            
         <label> Confirm Password <br>
             <input type="password" name="password2" placeholder="confirm password">
-        </label><br>
-         
-    
-    
-        <input type="submit" value="Sign Up" class="" >
+        </label>
+        <br>
+        <input type="submit" value="Sign Up" class="" ><br>
+
         <p style="color: red;">
           {% with messages = get_flashed_messages() %}
           {% if messages %}
