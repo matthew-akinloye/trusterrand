@@ -1,13 +1,9 @@
-from itertools import product
-import os
+
 from datetime import timedelta
 
 from flask import render_template, request, flash, session, redirect, url_for
 import hashlib
 
-from werkzeug.utils import secure_filename
-
-from config import Config
 from index import db, app
 from models import User, Products
 from user_functions import check_user
@@ -17,8 +13,10 @@ from user_functions import check_user
 def homepage():
     user_profile = check_user()
     products = Products.query.all()
+    # convert all product image strings to list
+    for product in products:
+        product.pictures = product.pictures.split(',')
     return render_template('home.html', user_profile=user_profile, products=products)
-    
 
 
 @app.route('/login')
