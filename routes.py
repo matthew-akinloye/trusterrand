@@ -17,8 +17,8 @@ from user_functions import check_user
 def homepage():
     user_profile = check_user()
     products = Products.query.all()
-    return render_template('lay.html', user_profile=user_profile, products=products)
-    return render_template('home.html', user_profile=user_profile)
+    return render_template('home.html', user_profile=user_profile, products=products)
+    
 
 
 @app.route('/login')
