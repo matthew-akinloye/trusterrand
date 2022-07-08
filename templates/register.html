@@ -1,261 +1,163 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Trusterrands</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="big-deal">
-    <meta name="keywords" content="big-deal">
-    <meta name="author" content="big-deal">
-    <link rel="icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up </title>
+     
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(122, 12, 12, 0);
+}
+.background{
+    width: 380px;
+    height: 450px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        yellow,
+        green
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        yellow,
+        green
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 800px;
+    width: 400px;
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    padding: 40px 35px;
+    border: 2px solid green;
+    box-shadow: 0 0 10px green;
+    
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    
+    letter-spacing: 0.5px;
+    outline: none;
+    border: 1px black;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
 
-    <!--Google font-->
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway&amp;display=swap" rel="stylesheet">
+form p{
+    text-align: center;
+    color: red;
+}
 
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/font-awesome.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/themify.css') }}">
-      <!--Slick slider css-->
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick.css') }}">
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick-theme.css') }}">
-      <!--Animate css-->
 
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.css') }}">
-      <!-- Bootstrap css -->
+form h2{
+    text-align: center;
+}
+form h5{
+    text-align: center;
+}
 
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
-      <!-- Theme css -->
-      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/color1.css' ) }}">
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.07);
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+::placeholder{
+  color: green;
+}
+    </style>
 </head>
-<body>
+<body  class="background">
+    <form method="post" action="/do-sign-up">
+    <div><br><br><br>
+        <h3>SIGN UP</h3>
+       
+        <label>First name <br>
+            <input type="text" name="firstname" placeholder="Enter your firstname">
+        </label>
+     
+        <label>Last name <br>
+          <input type="text" name="lastname" placeholder="Enter your lastname">
+      </label>
 
-<!-- loader start -->
-<div class="loader-wrapper">
-    <div>
-        <img src="../assets/images/loader.gif" alt="loader">
+        <label>Email <br>
+            <input type="email"  name="email" placeholder="name@example.com">
+        </label>
+
+        <label>Password <br>
+            <input type="password" name="password" placeholder="password">
+          </label>
+           
+        <label> Confirm Password <br>
+            <input type="password" name="password2" placeholder="confirm password">
+        </label><br>
+         
+    
+    
+        <input type="submit" value="Sign Up" class="" >
+        <p style="color: red;">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                  <p>{{ message }}</p>
+              {% endfor %}
+          {% endif %}
+          {% endwith %}
+      </p>
+    </form>
+    
     </div>
-</div>
-<!-- loader end -->
-
-<!--header start-->
-
-<!--header end-->
-
-<!-- breadcrumb start -->
-<div class="breadcrumb-main ">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="breadcrumb-contain">
-                    <div>
-                        <h2>register</h2>
-                        <ul>
-                            <li><a href="index-2.html">home</a></li>
-                            <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="javascript:void(0)">register</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- breadcrumb End -->
-
-<!--section start-->
-<section class="login-page section-big-py-space b-g-light">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-lg-4 offset-lg-4">
-                <div class="theme-card">
-                    <h3 class="text-center">Create account</h3>
-                      <form method="post" action="/do-sign-up" class="theme-form">
-                        <p style="color:red;">
-                          {% with messages = get_flashed_messages() %}
-                          {% if messages %}
-                              {% for message in messages %}
-                                  <b>{{ message }}</b>
-                              {% endfor %}
-                          {% endif %}
-                          {% endwith %}
-                      </p>
-                        <div class="row g-3">
-                            <div class="col-md-12 form-group">
-                                <label for="email">First Name</label>
-                                <input type="text" class="form-control" name="firstname" id="fname" placeholder="First Name" >
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label for="review">Last Name</label>
-                                <input type="text" class="form-control" name="lastname" id="lname" placeholder="Last Name" >
-                            </div>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-md-12 form-group">
-                                <label >email</label>
-                                <input type="text" class="form-control" name="email" placeholder="Email" >
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label >Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Enter your password">
-                            </div>
-                            <div class="col-md-12 form-group"><input type="submit" class="btn btn-normal"></div>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-md-12 ">
-                                <p >Have you already account? <a href="login" class="txt-default">click</a> here to &nbsp;<a href="login.html" class="txt-default">Login</a></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Section ends-->
-
-
-
-<!-- footer start -->
-<footer>
-  <div class="footer1">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="footer-main">
-            <div class="footer-box">
-              <div class="footer-title mobile-title">
-                <h5>about</h5>
-              </div>
-              <div class="footer-contant">
-                <div class="footer-logo">
-                  <a href="index-2.html">
-                    <img src="../assets/images/layout-2/logo/logo.png" class="img-fluid" alt="logo">
-                  </a>
-                </div>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.</p>
-                <ul class="paymant">
-                  <li><a href="javascript:void(0)"><img src="../assets/images/layout-1/pay/1.png" class="img-fluid" alt="pay"></a></li>
-                  <li><a href="javascript:void(0)"><img src="../assets/images/layout-1/pay/2.png" class="img-fluid" alt="pay"></a></li>
-                  <li><a href="javascript:void(0)"><img src="../assets/images/layout-1/pay/3.png" class="img-fluid" alt="pay"></a></li>
-                  <li><a href="javascript:void(0)"><img src="../assets/images/layout-1/pay/4.png" class="img-fluid" alt="pay"></a></li>
-                  <li><a href="javascript:void(0)"><img src="../assets/images/layout-1/pay/5.png" class="img-fluid" alt="pay"></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer-box">
-              <div class="footer-title">
-                <h5>my account</h5>
-              </div>
-              <div class="footer-contant">
-                <ul>
-                  <li><a href="javascript:void(0)">about us</a></li>
-                  <li><a href="javascript:void(0)">contact us</a></li>
-                  <li><a href="javascript:void(0)">terms &amp; conditions</a></li>
-                  <li><a href="javascript:void(0)">returns &amp; exchanges</a></li>
-                  <li><a href="javascript:void(0)">shipping &amp; delivery</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer-box">
-              <div class="footer-title">
-                <h5>contact us</h5>
-              </div>
-              <div class="footer-contant">
-                <ul class="contact-list">
-                  <li><i class="fa fa-map-marker"></i>big deal store demo store <br> india-<span>3654123</span></li>
-                  <li><i class="fa fa-phone"></i>call us: <span>123-456-7898</span></li>
-                  <li><i class="fa fa-envelope-o"></i>email us: support@bigdeal.com</li>
-                  <li><i class="fa fa-fax"></i>fax <span>123456</span></li>
-                </ul>
-              </div>
-            </div>
-            <div class="footer-box">
-              <div class="footer-title">
-                <h5>newsletter</h5>
-              </div>
-              <div class="footer-contant">
-                <div class="newsletter-second">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="enter full name" >                     
-                      <span class="input-group-text"><i class="ti-user"></i></span>                      
-                    </div>
-                  </div>
-                  <div class="form-group ">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="enter email address" >                     
-                      <span class="input-group-text"><i class="ti-email"></i></span>                     
-                    </div>
-                  </div>
-                  <div class="form-group mb-0">
-                    <a href="javascript:void(0)" class="btn btn-solid btn-sm">submit now</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="subfooter dark-footer ">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-6 col-md-8 col-sm-12">
-          <div class="footer-left">
-            <p>2019-20 Copy Right by Themeforest Powered by pixel strap</p>
-          </div>
-        </div>
-        <div class="col-xl-6 col-md-4 col-sm-12">
-          <div class="footer-right">
-            <ul class="sosiyal">
-              <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="javascript:void(0)"><i class="fa fa-rss"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- footer end -->
-
-
-</div>
-<!-- add to  setting bar  end-->
-
-<!-- latest jquery-->
-
-<script src="{{ url_for('static', filename='assets/js/jquery-3.3.1.min.js') }}" ></script>
-
-<!-- menu js-->
-<script src="{{ url_for('static', filename='assets/js/menu.js') }}"></script>
-
-
-<!-- tool tip js -->
-<script src="{{ url_for('static', filename='assets/js/tippy-popper.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/js/tippy-bundle.iife.min.js') }}"></script>
-
-<!-- popper js-->
-<script src="{{ url_for('static', filename='assets/js/popper.min.js') }}" ></script>
-
-<!-- feather icon -->
-<script src="{{ url_for('static', filename='assets/js/feather.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/js/feather-icon.js') }}"></script>
-
-<!-- slick js-->
-<script  src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
-
-<!-- Bootstrap js-->
-<script src="{{ url_for('static', filename='assets/js/bootstrap.js') }}" ></script>
-
-<!-- Theme js-->
-<script src="{{ url_for('static', filename='assets/js/script.js') }}" ></script>
-
 </body>
 </html>

@@ -86,11 +86,14 @@ def do_signup():
     firstname = request.form['firstname']
     lastname = request.form['lastname']
     email = request.form['email']
-    
     password = request.form['password']
+    password2 = request.form['password2']
     
-    if firstname == '' or lastname == '' or email == '' or password == '':
+    if firstname == '' or lastname == '' or email == '' or password == '' or password2 == '':
         flash('All fields are required!')
+        return redirect(url_for('register_page'))
+    if password != password2:
+        flash('Passwords does not match')
         return redirect(url_for('register_page'))
     
     password_hash = hashlib.sha256(password.encode()).hexdigest()

@@ -1,147 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Trusterrands</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Trusterrands">
-  <meta name="keywords" content="Trusterrands">
-  <meta name="author" content="Trusterrands">
-  <link rel="icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
-  <link rel="shortcut icon" href="../assets/images/favicon/favicon.png" type="image/x-icon">
-  <!--Google font-->
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Raleway&amp;display=swap" rel="stylesheet">
-  <!--icon css-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediforte online-login</title>
+     
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0000;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape{
+    background: linear-gradient(
+        yellow,
+        green
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        yellow,
+        green
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 520px;
+    width: 400px;
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    border: 2px solid green;
+    box-shadow: 0 0 10px green;
+    padding: 50px 35px;
+    
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    
+    letter-spacing: 0.5px;
+    outline: none;
+    border: 1px black;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/font-awesome.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/themify.css') }}">
-  <!--Slick slider css-->
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick-theme.css') }}">
-  <!--Animate css-->
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.css') }}">
-  <!-- Bootstrap css -->
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.css') }}">
-  <!-- Theme css -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/color1.css' ) }}">
-  
+form p{
+    text-align: center;
+    color: red;
+}
 
 
+form h2{
+    text-align: center;
+}
+form h5{
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: green;
+}
+
+
+
+    </style>
 </head>
-<body>
-<!-- loader start -->
-<div class="loader-wrapper">
+<body  class="background">
     <div>
-        <img src="../assets/images/loader.gif" alt="loader">
+       
+       
+    <form method="post" action="/do-login">
+        <h2>LOGIN</h2>
+        <h5>login with your email or username</h5>
+        <label>Email <br>
+            <input type="email"  name="email" placeholder="Enter Your Email">
+        </label>
+    
+        <label>Password <br>
+            <input type="password" name="password" placeholder="password">
+          </label><br>
+             
+            <br>
+            
+        <input type="submit" value="submit" class="button">
+        <br><br><br>
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <b>{{ message }}</b>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </p>
+    </form>
     </div>
-</div>
-<!-- loader end -->
-
-<!--header start-->
-
-<!--header end-->
-
-<!-- breadcrumb start -->
-<div class="breadcrumb-main ">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="breadcrumb-contain">
-                    <div>
-                        <h2>login</h2>
-                        <ul>
-                            <li><a href="">home</a></li>
-                            <li><i class="fa fa-angle-double-right"></i></li>
-                            <li><a href="javascript:void(0)">login</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- breadcrumb End -->
-
-<!--section start-->
-<section class="login-page section-big-py-space b-g-light">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-8 offset-xl-4 offset-lg-3 offset-md-2">
-                <div class="theme-card">
-                    <h3 class="text-center">Login</h3>
-                    <form method="post" action="/do-login">
-                      <p style="color:red;">
-                        {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            {% for message in messages %}
-                                <b>{{ message }}</b>
-                            {% endfor %}
-                        {% endif %}
-                        {% endwith %}
-                    </p> <br>
-                        <div class="form-group">
-                            <label >Email</label>
-                            <input type="text" name="email" class="form-control"  placeholder="Email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label >Password</label>
-                            <input type="password" name="password" class="form-control"  placeholder="Enter your password" required="">
-                        </div>
-                        <div class="col-md-12 form-group"><input type="submit" class="btn btn-normal"></div>
-                        <a class="float-end txt-default mt-2" href="forget-pwd.html">Forgot your password?</a>
-                    </form>  <br>
-                    <p class="mt-3">Sign up for a free account at our store..</p><br>
-                    <a href="" class="txt-default pt-3 d-block">Create an Account</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Section ends-->
-
-
-<!-- footer start -->
-
-<!-- footer end -->
-
-<!--Newsletter modal popup start-->
-
-<!--Newsletter Modal popup end-->
-
-<!-- Quick-view modal popup start-->
-
-<!-- add to  setting bar  end-->
-
-<!-- latest jquery-->
-<script src="{{ url_for('static', filename='assets/js/jquery-3.3.1.min.js') }}" ></script>
-
-<!-- menu js-->
-<script src="{{ url_for('static', filename='assets/js/menu.js') }}"></script>
-
-
-<!-- tool tip js -->
-<script src="{{ url_for('static', filename='assets/js/tippy-popper.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/js/tippy-bundle.iife.min.js') }}"></script>
-
-<!-- popper js-->
-<script src="{{ url_for('static', filename='assets/js/popper.min.js') }}" ></script>
-
-<!-- feather icon -->
-<script src="{{ url_for('static', filename='assets/js/feather.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/js/feather-icon.js') }}"></script>
-
-<!-- slick js-->
-<script  src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
-
-<!-- Bootstrap js-->
-<script src="{{ url_for('static', filename='assets/js/bootstrap.js') }}" ></script>
-
-<!-- Theme js-->
-<script src="{{ url_for('static', filename='assets/js/script.js') }}" ></script>
-
 </body>
 </html>
