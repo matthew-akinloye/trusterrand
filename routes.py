@@ -16,7 +16,7 @@ def homepage():
     # convert all product image strings to list
     for product in products:
         product.pictures = product.pictures.split(',')
-    return render_template('home.html', user_profile=user_profile, products=products)
+    return render_template('index.html', user_profile=user_profile, products=products)
 
 
 @app.route('/login')
