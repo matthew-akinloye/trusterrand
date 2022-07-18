@@ -16,20 +16,6 @@ class User(db.Model):
         return "<User {}>".format(self.firstname)
 
 
-class Products(db.Model):
-    id = db.Column(db.Integer, primary_key=True, index=True)
-    title = db.Column(db.String(100), nullable=False)
-    price = db.Column(db.Numeric(10, 2), default=0, nullable=False)
-    old_price = db.Column(db.Numeric(10, 2), default=0, nullable=False)
-    description = db.Column(db.Text)
-    category = db.Column(db.String(12))
-    pictures = db.Column(db.Text)
-    created = db.Column(db.DateTime, default=datetime.now())
-    
-    def __repr__(self):
-        return "<Product {}>".format(self.title)
-
-
 class Addresses(db.Model):
     id = db.Column(db.Integer, primary_key=True, index=True)
     user_id = db.Column(db.Integer, index=True)
@@ -40,3 +26,70 @@ class Addresses(db.Model):
 
     def __repr__(self):
         return "<Address {}>".format(self.address)
+
+
+class Variants(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    title = db.Column(db.String(50))
+    value = db.Column(db.String(150))
+    price = db.Column(db.NUMERIC(10, 2), nullable=False)
+    compareAtPrice = db.Column(db.NUMERIC(10, 2), default=0)
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class Products(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    price = db.Column(db.NUMERIC(10, 2), nullable=False)
+    old_price = db.Column(db.NUMERIC(10, 2), default=0)
+    handle = db.Column(db.String(70), unique=True, index=True)
+    title = db.Column(db.String(220))
+    images = db.Column(db.Text)
+    category = db.Column(db.String(70))
+    description = db.Column(db.Text)
+    descriptionHtml = db.Column(db.Text)
+    vendor = db.Column(db.String(70))
+    productType = db.Column(db.String(70))
+    tags = db.Column(db.Text)
+    quantity = db.Column(db.Integer, default=0)
+    weight = db.Column(db.Integer, default=0)
+    sku = db.Column(db.String(70), unique=True)
+
+    updatedAt = db.Column(db.DateTime)
+
+    created = db.Column(db.DateTime, default=datetime.now())
+    views = db.Column(db.Integer, default=0)
+
+    status = db.Column(db.String(10), default='active')
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(220))
+    handle = db.Column(db.String(70), unique=True)
+    description = db.Column(db.String(220))
+    amount = db.Column(db.Integer, default=0)
+    image = db.Column(db.Text)
+    active = db.Column(db.Boolean, default=True)
+    created = db.Column(db.DateTime, default=datetime.now())
+
+    def __repr__(self):
+        return "<Category: {}, Active: {}>".format(self.title, self.active)
+
+    def hide(self):
+        self.active = False
+        db.session.commit()
+        return self.handle + 'hidden'
+
+    def show(self):
+        self.active = True
+        db.session.commit()
+        return self.handle + 'is visible'
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
