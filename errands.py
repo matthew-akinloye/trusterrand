@@ -29,11 +29,15 @@ def delete_categories(amount):
 def delete_products(amount):
     amount = int(amount)
     if amount == 0:
-        Products.query.delete()
-        print('All categories deleted..')
+        db.session.query(Products).delete()
+        db.session.commit()
+        print('All products deleted..')
     else:
-        Products.query.limit(amount).delete()
-        print('deleted {} categories'.format(amount))
+        deletions = Products.query.limit(amount).all()
+        for deleted in deletions:
+            db.session.delete(deleted)
+        db.session.commit()
+        print('deleted {} products'.format(amount))
 
 
 def create_dummy_products(amount):
