@@ -12,6 +12,24 @@ from models import Category, Products
 fake = Faker()
 
 
+def delete_categories(amount: int):
+    if amount == 0:
+        Category.query().delete()
+        print('All categories deleted..')
+    else:
+        Category.query().limit(amount).delete()
+        print('deleted {} categories'.format(amount))
+
+
+def delete_products(amount: int):
+    if amount == 0:
+        Products.query().delete()
+        print('All categories deleted..')
+    else:
+        Products.query().limit(amount).delete()
+        print('deleted {} categories'.format(amount))
+
+
 def create_dummy_products(amount):
     i = 0
     while amount > i:
@@ -36,6 +54,7 @@ def create_dummy_products(amount):
         i += 1
     print("Generated {} dummy products!".format(i))
 
+
 def create_dummy_category(amount):
     i = 0
     while amount > i:
@@ -48,7 +67,7 @@ def create_dummy_category(amount):
             handle = slugify(title + ' ' + id_generator(3))
 
         new_category = Category(title=title, handle=handle,
-                               description=description, amount=amount)
+                                description=description, amount=amount)
         db.session.add(new_category)
         db.session.commit()
         i += 1
