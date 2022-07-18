@@ -26,6 +26,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
+    
 
     <!-- Libraries Stylesheet -->
 
@@ -486,9 +487,7 @@
               >Errand
             </h1>
           </a>
-          <p>
-  
-          </p>
+          <p></p>
           <p class="mb-2">
             <i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street,
             New York, USA
@@ -511,7 +510,7 @@
                 <a class="text-dark mb-2" href="shop.html"
                   ><i class="fa fa-angle-right mr-2"></i>Our Shop</a
                 >
-                
+
                 <a class="text-dark mb-2" href="cart.html"
                   ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
                 >
@@ -582,13 +581,9 @@
         <div class="col-md-6 px-xl-0">
           <p class="mb-md-0 text-center text-md-left text-dark">
             &copy;
-            <a class="text-dark font-weight-semi-bold" href="#"
-              >Trusterrand</a
-            >. All Rights Reserved. Designed by
-            <a
-              class="text-dark font-weight-semi-bold"
-              href="https://"
-              ></a
+            <a class="text-dark font-weight-semi-bold" href="#">Trusterrand</a>.
+            All Rights Reserved. Designed by
+            <a class="text-dark font-weight-semi-bold" href="https://"></a
             ><br />
             Distributed By
             <a href="https://" target="_blank"></a>
@@ -610,13 +605,29 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <link
+      rel="script"
+      href="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"
+    />
+   
 
     <!-- Contact Javascript File -->
+    <link
+      rel="script"
+      href="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"
+    />
+    <link
+      rel="script"
+      href="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"
+    />
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
+    <link
+      rel="script"
+      href="{{ url_for('static', filename='') }}"
+    />
     <script src="js/main.js"></script>
   </body>
 </html>
