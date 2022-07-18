@@ -7,7 +7,7 @@ from flask import request
 from slugify import slugify
 
 from index import db
-from models import Products
+from models import Category, Products
 
 fake = Faker()
 
@@ -35,6 +35,24 @@ def create_dummy_products(amount):
         db.session.commit()
         i += 1
     print("Generated {} dummy products!".format(i))
+
+def create_dummy_category(amount):
+    i = 0
+    while amount > i:
+        title = fake.name()
+        description = fake.text()
+        amount = fake.random.randint(2, 10000)
+
+        handle = slugify(title)
+        while bool(Category.query.filter_by(handle=handle).first()):
+            handle = slugify(title + ' ' + id_generator(3))
+
+        new_category = Category(title=title, handle=handle,
+                               description=description, amount=amount)
+        db.session.add(new_category)
+        db.session.commit()
+        i += 1
+    print("Generated {} dummy categories!".format(i))
 
 
 def generate_sku():

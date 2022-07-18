@@ -1,11 +1,12 @@
 
 from datetime import timedelta
+from unicodedata import category
 
 from flask import render_template, request, flash, session, redirect, url_for
 import hashlib
 
 from index import db, app
-from models import User, Products
+from models import User, Products,Category
 from user_functions import check_user
 
 
@@ -13,10 +14,11 @@ from user_functions import check_user
 def homepage():
     user_profile = check_user()
     products = Products.query.all()
+    categories = Category.query.all()
     # convert all product image strings to list
     for product in products:
-        product.images = product.images.split(',')
-    return render_template('index.html', user_profile=user_profile, products=products)
+        product.images = product.images.split(',')    
+    return render_template('index.html', user_profile=user_profile, products=products, categories=categories)
 
 
 @app.route('/login')
