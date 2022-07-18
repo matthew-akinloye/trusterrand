@@ -15,7 +15,7 @@ def homepage():
     products = Products.query.all()
     # convert all product image strings to list
     for product in products:
-        product.pictures = product.pictures.split(',')
+        product.images = product.images.split(',')
     return render_template('index.html', user_profile=user_profile, products=products)
 
 
