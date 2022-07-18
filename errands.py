@@ -12,25 +12,32 @@ from models import Category, Products
 fake = Faker()
 
 
-def delete_categories(amount: int):
+def delete_categories(amount):
+    amount = int(amount)
     if amount == 0:
-        Category.query().delete()
+        db.session.query(Category).delete()
+        db.session.commit()
         print('All categories deleted..')
     else:
-        Category.query().limit(amount).delete()
+        deletions = Category.query.limit(amount).all()
+        for deleted in deletions:
+            db.session.delete(deleted)
+        db.session.commit()
         print('deleted {} categories'.format(amount))
 
 
-def delete_products(amount: int):
+def delete_products(amount):
+    amount = int(amount)
     if amount == 0:
-        Products.query().delete()
+        Products.query.delete()
         print('All categories deleted..')
     else:
-        Products.query().limit(amount).delete()
+        Products.query.limit(amount).delete()
         print('deleted {} categories'.format(amount))
 
 
 def create_dummy_products(amount):
+    amount = int(amount)
     i = 0
     while amount > i:
         title = fake.name()
@@ -56,18 +63,21 @@ def create_dummy_products(amount):
 
 
 def create_dummy_category(amount):
+    amount = int(amount)
     i = 0
     while amount > i:
         title = fake.name()
         description = fake.text()
-        amount = fake.random.randint(2, 10000)
-
+        cat_amount = fake.random.randint(2, 100)
         handle = slugify(title)
         while bool(Category.query.filter_by(handle=handle).first()):
             handle = slugify(title + ' ' + id_generator(3))
 
+        picture = "https://picsum.photos/seed/{}/200/200".format(handle)
+
         new_category = Category(title=title, handle=handle,
-                                description=description, amount=amount)
+                                description=description, amount=cat_amount,
+                                image=picture)
         db.session.add(new_category)
         db.session.commit()
         i += 1
