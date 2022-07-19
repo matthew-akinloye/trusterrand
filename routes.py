@@ -33,6 +33,18 @@ def contact():
 def cart():
     return render_template('cart.html')
 
+@app.route('/shop')
+def shop():
+    user_profile = check_user()
+    products = Products.query.all()
+    categories = Category.query.all()
+    # convert all product image strings to list
+    for product in products:
+        product.images = product.images.split(',')    
+    return render_template('shop.html', user_profile=user_profile, products=products, categories=categories)
+
+
+
 @app.route('/logout')
 def logout():
     # removing sessions
