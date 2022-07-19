@@ -75,7 +75,7 @@
             <h1 class="m-0 display-5 font-weight-semi-bold">
               <span class="text-primary font-weight-bold border px-3 mr-1"
                 >Trust</span
-              >Errand
+              >Errands
             </h1>
           </a>
         </div>
@@ -96,10 +96,7 @@
           </form>
         </div>
         <div class="col-lg-3 col-6 text-right">
-          <a href="" class="btn border">
-            <i class="fas fa-heart text-primary"></i>
-            <span class="badge">0</span>
-          </a>
+          
           <a href="/cart" class="btn border">
             <i class="fas fa-shopping-cart text-primary"></i>
             <span class="badge"><span class="total-count"></span></span>
@@ -129,20 +126,12 @@
           <nav
             class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
             id="navbar-vertical"
-          >
+          >{% for category in categories %}
             <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
               <div class="nav-item dropdown">
-                <a href="#" class="nav-link" data-toggle="dropdown"
-                  >Dresses <i class="fa fa-angle-down float-right mt-1"></i
-                ></a>
-                <div
-                  class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
-                >
-                  <a href="/shop" class="dropdown-item">Men's Dresses</a>
-         
-                </div>
-              </div>
-              <a href="/shop" class="nav-item nav-link">Shirts</a>
+                <a href="" class="nav-link" data-toggle="dropdown"
+                  >{{ category.title }} </a>
+                {% endfor %}
  
             </div>
           </nav>
@@ -151,7 +140,7 @@
           <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0" >
             <a href="/shop" class="text-decoration-none d-block d-lg-none">
               <h1 class="m-0 display-5 font-weight-semi-bold">
-                <span class="text-primary font-weight-bold border px-3 mr-1" >Trust</span>Errand
+                <span class="text-primary font-weight-bold border px-3 mr-1" >Trust</span>Errands
               </h1>
             </a>
             <button
@@ -169,23 +158,8 @@
               <div class="navbar-nav mr-auto py-0">
                 <a href="/" class="nav-item nav-link active">Home</a>
                 <a href="/shop" class="nav-item nav-link">Shop</a>
-
-                <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class=""
-                    data-toggle="dropdown"
-                    ></a
-                  >
-                  <div class="dropdown-menu rounded-0 m-0">
-                    <a href="" class="dropdown-item"></a>
-                    <a href="" class="dropdown-item"></a>
-                  </div>
-                </div>
-                <a href="/contact" class="nav-item nav-link">Contact</a>
-              </div>
-            
-              <div class="navbar-nav ml-auto py-0" >
+                <a href="/contact" class="nav-item nav-link">Contact</a>   </div>
+              <div class="navbar-nav ml-auto py-0" >  </div>
                
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -195,10 +169,10 @@
                 {% endif %}
             {% endwith %}
                
-  
+        
             </div>
           </nav>
-
+          <div class="carousel" >
           <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               {% for product in products %}
@@ -351,14 +325,9 @@
                     </h6>
                   </div>
                 </div>
-                <div
-                  class="card-footer d-flex justify-content-between bg-light border"
-                >
-                  <a href="/shop" class="btn btn-sm text-dark p-0"
-                    ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
-                  >
-              <a href=""  class="add-to-cart"> <i class="fas fa-shopping-cart text-primary mr-1"></i>Add
-                    To Cart</a>
+                <div class="card-footer d-flex justify-content-between bg-light border">
+                  <a href="/shop" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+              <a href=""  class="add-to-cart"> <i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                 </div>
               </div>
             </div>
@@ -484,7 +453,7 @@
                 <span
                   class="text-primary font-weight-bold border border-white px-3 mr-1"
                   >Trust</span
-                >Errand
+                >Errands
               </h1>
             </a>
             <p></p>
@@ -513,9 +482,7 @@
                   <a class="text-dark mb-2" href="/cart"
                     ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
                   >
-                  <a class="text-dark mb-2" href="/checkout"
-                    ><i class="fa fa-angle-right mr-2"></i>Checkout</a
-                  >
+                  
                   <a class="text-dark" href="/contact"
                     ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
                   >
@@ -533,9 +500,7 @@
                   <a class="text-dark mb-2" href="/cart"
                     ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
                   >
-                  <a class="text-dark mb-2" href="/checkout"
-                    ><i class="fa fa-angle-right mr-2"></i>Checkout</a
-                  >
+                  
                   <a class="text-dark" href="/contact"
                     ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
                   >
