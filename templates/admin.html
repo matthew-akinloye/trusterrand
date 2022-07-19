@@ -104,7 +104,10 @@
             <i class="fas fa-shopping-cart text-primary"></i>
             <span class="badge">0</span>
           </a>
-          
+          <a href="/dashboard" class="btn border">
+            <i class="fas fa-user text-primary"></i>
+            <span class="badge">0</span>
+          </a>
         </div>
       </div>
     </div>
@@ -169,7 +172,7 @@
             >
               <div class="navbar-nav mr-auto py-0">
                 <a href="/" class="nav-item nav-link active">Home</a>
-                <a href="/shop" class="nav-item nav-link">Shop</a>
+                <a href="/shop" class="nav-item nav-link">Shop</a> 
 
                 <div class="nav-item dropdown">
                   <a
@@ -179,18 +182,25 @@
                     >Pages</a
                   >
                   <div class="dropdown-menu rounded-0 m-0">
-                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                    <a href="/cart" class="dropdown-item">Shopping Cart</a>
+                    <a href="/checkout" class="dropdown-item">Checkout</a>
                   </div>
                 </div>
                 <a href="/contact" class="nav-item nav-link">Contact</a>
               </div>
-            
+              
               <div class="navbar-nav ml-auto py-0">
-                <a href="/register" class="nav-item nav-link">Sign up</a>
-               
+                
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <a href="/dashboard" class="nav-item nav-link">{{ message }}</a>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
               </div>
             </div>
+            
           </nav>
 
           <div id="header-carousel" class="carousel slide" data-ride="carousel">
