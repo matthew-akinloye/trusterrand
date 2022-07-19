@@ -29,6 +29,10 @@ def login_page():
 def contact():
     return render_template('contact.html')
 
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
+
 @app.route('/logout')
 def logout():
     # removing sessions
