@@ -35,10 +35,9 @@ def contact():
 def cart():
     return render_template('cart.html')
 
-@app.route('/dashboard')
-def dashboard():
-    user_profile = check_user()
-    return render_template('dash.html', user_profile=user_profile)
+
+
+
 
 @app.route('/shop')
 def shop():
@@ -50,8 +49,8 @@ def shop():
         product.images = product.images.split(',')    
     return render_template('shop.html', user_profile=user_profile, products=products, categories=categories)
 
-@app.route('/admin')
-def admin():
+@app.route('/dashboard')
+def dashboard():
     user_profile = check_user()
     products = Products.query.all()
     categories = Category.query.all()
@@ -87,7 +86,7 @@ def login():
             session['password'] = password
             session['id'] = correct_user.id
             
-            response = redirect(url_for('admin'))
+            response = redirect(url_for('dashboard'))
             response.set_cookie('user_id', str(correct_user.id),
                                 max_age=timedelta(hours=24))
             response.set_cookie('pw', password_hash,
@@ -142,7 +141,7 @@ def do_signup():
     session['email'] = email
     session['password'] = password
     session['id'] = new_user.id
-    response = redirect(url_for('admin'))
+    response = redirect(url_for('dashboard'))
     response.set_cookie('user_id', str(new_user.id),
                         max_age=timedelta(hours=24))
     response.set_cookie('pw', password_hash,

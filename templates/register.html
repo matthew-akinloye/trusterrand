@@ -6,157 +6,255 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign up </title>
+    <meta charset="utf-8" />
+    <title>Trusterrandss</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Trusterrandss" name="keywords" />
+    <meta content="Trusterrandss" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+    />
+    <!-- Google Web Fonts -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com " />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    
+
+    <!-- Libraries Stylesheet -->
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}"
+    />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
      
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <!--Stylesheet-->
-    <style media="screen">
-      *,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: rgba(122, 12, 12, 0);
-}
-.background{
-    width: 380px;
-    height: 450px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-}
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
-.shape:first-child{
-    background: linear-gradient(
-        yellow,
-        green
-    );
-    left: -80px;
-    top: -80px;
-}
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        yellow,
-        green
-    );
-    right: -30px;
-    bottom: -80px;
-}
-form{
-    height: 800px;
-    width: 400px;
-    background-color: white;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
+    <style >
+ 
+    </style>
+</head>
+<body>
+  
+
+    <section class="ftco-section" style=" 
     border-radius: 10px;
     backdrop-filter: blur(20px);
     padding: 40px 35px;
     border: 2px solid green;
-    box-shadow: 0 0 10px green;
-    
-}
-form *{
-    font-family: 'Poppins',sans-serif;
-    
-    letter-spacing: 0.5px;
-    outline: none;
-    border: 1px black;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
+    box-shadow: 0 0 10px green;">
+		<div class="container">
+            
+        
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					
+					<h1 class="m-0 display-5 font-weight-semi-bold">
+                        <span class="text-primary font-weight-bold border px-3 mr-1"
+                          >Trust</span
+                        >Errands
+                      </h1>
+                     
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					
+		      	<div class="icon d-flex align-items-center justify-content-center">
+		      		<span class="fa fa-user"></span>
+                <br> 
+		      	</div>
+                  
+		      	<h3 class="text-center mb-4">Register</h3>
+                  <br> 
+                            <form method="post" action="/do-sign-up" class="login-form">
+		      		<div class="form-group">
+                        <label>First name <br>
+                            <input class="form-control rounded-left"  type="text" name="firstname" placeholder="Enter your firstname">
+                        </label>
+                        
+                        <label>Last name <br>
+                          <input class="form-control rounded-left"   type="text" name="lastname" placeholder="Enter your lastname">
+                      </label>
+                      </div>
+                        <label>Email <br>
+                            <input class="form-control rounded-left"  type="email"  name="email" placeholder="name@example.com">
+                        </label>
+                
+                        <label>Password <br>
+                            <input class="form-control rounded-left"  type="password" name="password" placeholder="password">
+                          </label>
+                           
+                        <label> Confirm Password <br>
+                            <input class="form-control rounded-left"  type="password" name="password2" placeholder="confirm password">
+                        </label>
+		      			
+	           
+	               <div class="login-wrap p-4 p-md-5">  <p style=" width: 100%;
+                    margin-top: 0.25rem;
+                    font-size: 80%;
+                    color: #dc3545;">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <b>{{ message }}</b>
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </p></div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+	            		<label class="checkbox-wrap checkbox-primary">Have an account?
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="/login">    Login</a>
+								</div>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Sign up</button>
+                   
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-form p{
-    text-align: center;
-    color: red;
-}
 
 
-form h2{
-    text-align: center;
-}
-form h5{
-    text-align: center;
-}
+<hr>
 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-}
-input{
-  display: block;
-  height: 50px;
-  width: 100%;
-  background-color: rgba(255,255,255,0.07);
-  border: 2px solid green;
-  border-radius: 5px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-}
-::placeholder{
-  color: green;
-}
-    </style>
-</head>
-<body  class="background">
-    <form method="post" action="/do-sign-up">
-    <div><br>
-        <h3>SIGN UP</h3>
-       
-        <label>First name <br>
-            <input type="text" name="firstname" placeholder="Enter your firstname">
-        </label>
-     
-        <label>Last name <br>
-          <input type="text" name="lastname" placeholder="Enter your lastname">
-      </label>
 
-        <label>Email <br>
-            <input type="email"  name="email" placeholder="name@example.com">
-        </label>
-
-        <label>Password <br>
-            <input type="password" name="password" placeholder="password">
-          </label>
-           
-        <label> Confirm Password <br>
-            <input type="password" name="password2" placeholder="confirm password">
-        </label>
-        <br>
-        <input type="submit" value="Sign Up" class="" ><br>
-
-        <p style="color: red;">
-          {% with messages = get_flashed_messages() %}
-          {% if messages %}
-              {% for message in messages %}
-                  <p>{{ message }}</p>
-              {% endfor %}
-          {% endif %}
-          {% endwith %}
-      </p>
-    </form>
-    
-    </div>
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+          <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="" class="text-decoration-none">
+              <h1 class="mb-4 display-5 font-weight-semi-bold">
+                <span
+                  class="text-primary font-weight-bold border border-white px-3 mr-1"
+                  >Trust</span
+                >Errand
+              </h1>
+            </a>
+            <p></p>
+            <p class="mb-2">
+              <i class="fa fa-map-marker-alt text-primary mr-3"></i>Block A Ilemarun, Iwo Road, Ibadan.
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-envelope text-primary mr-3"></i>trusterrandss@gmail.com
+            </p>
+            <p class="mb-0">
+              <i class="fa fa-phone-alt text-primary mr-3"></i>+2348029562281
+            </p>
+          </div>
+          <div class="col-lg-8 col-md-12">
+            <div class="row">
+              <div class="col-md-4 mb-5">
+                <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                <div class="d-flex flex-column justify-content-start">
+                  <a class="text-dark mb-2" href="/"
+                    ><i class="fa fa-angle-right mr-2"></i>Home</a
+                  >
+                  <a class="text-dark mb-2" href="/shop"
+                    ><i class="fa fa-angle-right mr-2"></i>Our Shop</a
+                  >
+  
+                  <a class="text-dark mb-2" href="/cart"
+                    ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
+                  >
+                  <a class="text-dark mb-2" href="/checkout"
+                    ><i class="fa fa-angle-right mr-2"></i>Checkout</a
+                  >
+                  <a class="text-dark" href="/contact"
+                    ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
+                  >
+                </div>
+              </div>
+              <div class="col-md-4 mb-5">
+                <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+                <div class="d-flex flex-column justify-content-start">
+                  <a class="text-dark mb-2" href="/"
+                    ><i class="fa fa-angle-right mr-2"></i>Home</a
+                  >
+                  <a class="text-dark mb-2" href="/shop"
+                    ><i class="fa fa-angle-right mr-2"></i>Our Shop</a
+                  >
+                  <a class="text-dark mb-2" href="/cart"
+                    ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
+                  >
+                  <a class="text-dark mb-2" href="/checkout"
+                    ><i class="fa fa-angle-right mr-2"></i>Checkout</a
+                  >
+                  <a class="text-dark" href="/contact"
+                    ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
+                  >
+                </div>
+              </div>
+              <div class="col-md-4 mb-5">
+                <h5 class="font-weight-bold text-dark mb-4">Newsletter</h5>
+                <form action="">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control border-0 py-4"
+                      placeholder="Your Name"
+                      required="required"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control border-0 py-4"
+                      placeholder="Your Email"
+                      required="required"
+                    />
+                  </div>
+                  <div>
+                    <button
+                      class="btn btn-primary btn-block border-0 py-3"
+                      type="submit"
+                    >
+                      Subscribe Now
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+          <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-dark">
+              &copy;
+              <a class="text-dark font-weight-semi-bold" href="#">Trusterrands</a>.
+              All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-md-6 px-xl-0 text-center text-md-right">
+            <img class="img-fluid" src="img/payments.png" alt="" />
+          </div>
+        </div>
+      </div>
 </body>
 </html>

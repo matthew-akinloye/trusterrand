@@ -84,6 +84,11 @@ p {
   margin-bottom: 1rem;
 }
 
+.add-to-cart{
+  color: #000000;
+
+}
+
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
@@ -293,6 +298,8 @@ textarea {
   overflow: auto;
   resize: vertical;
 }
+
+
 
 fieldset {
   min-width: 0;

@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Trusterrands</title>
+    <title>Trusterrandss</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Trusterrands" name="keywords" />
-    <meta content="Trusterrands" name="description" />
+    <meta content="Trusterrandss" name="keywords" />
+    <meta content="Trusterrandss" name="description" />
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
@@ -100,11 +100,16 @@
             <i class="fas fa-heart text-primary"></i>
             <span class="badge">0</span>
           </a>
-          <a href="" class="btn border">
+          <a href="/login" class="btn border">
             <i class="fas fa-shopping-cart text-primary"></i>
-            <span class="badge">0</span>
+            <span class="badge"><span class="total-count"></span></span>
           </a>
-          
+          <a href="/login" class="btn border">
+            <i class="fas fa-user text-primary"></i>
+            <span class="badge"></span>
+
+            
+          </a>
         </div>
       </div>
     </div>
@@ -123,32 +128,29 @@
             <h6 class="m-0">Categories</h6>
             <i class="fa fa-angle-down text-dark"></i>
           </a>
+
           <nav
             class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
             id="navbar-vertical"
-          >
+          >{% for category in categories %}
             <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
               <div class="nav-item dropdown">
-                <a href="#" class="nav-link" data-toggle="dropdown"
-                  >Dresses <i class="fa fa-angle-down float-right mt-1"></i
-                ></a>
-                <div
-                  class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
-                >
-                  <a href="/shop" class="dropdown-item">Men's Dresses</a>
-         
-                </div>
-              </div>
-              <a href="/shop" class="nav-item nav-link">Shirts</a>
+                <a href="" class="nav-link" data-toggle="dropdown"
+                  >{{ category.title }} </a>
+                {% endfor %}
  
             </div>
           </nav>
         </div>
         <div class="col-lg-9">
-          <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0" >
+          <nav
+            class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0"
+          >
             <a href="/shop" class="text-decoration-none d-block d-lg-none">
               <h1 class="m-0 display-5 font-weight-semi-bold">
-                <span class="text-primary font-weight-bold border px-3 mr-1" >Trust</span>Errand
+                <span class="text-primary font-weight-bold border px-3 mr-1"
+                  >Trust</span
+                >Errand
               </h1>
             </a>
             <button
@@ -165,29 +167,23 @@
             >
               <div class="navbar-nav mr-auto py-0">
                 <a href="/" class="nav-item nav-link active">Home</a>
-                <a href="/shop" class="nav-item nav-link">Shop</a>
+                <a href="/shop" class="nav-item nav-link">Shop</a> 
 
                 <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    >Pages</a
-                  >
-                  <div class="dropdown-menu rounded-0 m-0">
-                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                  </div>
+                  <a href="#" ></a>
+                  
                 </div>
                 <a href="/contact" class="nav-item nav-link">Contact</a>
+                <a href="/login" class="nav-item nav-link">Login</a>
+                <a href="/register" class="nav-item nav-link">Register</a>
               </div>
-            
-              <div class="navbar-nav mr-auto py-0" >
-               
-                <a href="/register" class="nav-item nav-link">Sign up</a> </div>
-               
-  
+              
+              <div class="navbar-nav ml-auto py-0">
+       
+              
+              </div>
             </div>
+            
           </nav>
 
           <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -348,10 +344,8 @@
                   <a href="/shop" class="btn btn-sm text-dark p-0"
                     ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
                   >
-                  <a href="/cart" class="btn btn-sm text-dark p-0"
-                    ><i class="fas fa-shopping-cart text-primary mr-1"></i>Add
-                    To Cart</a
-                  >
+                  <a href="" class="add-to-cart"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add
+                    To Cart</a>
                 </div>
               </div>
             </div>
@@ -482,14 +476,13 @@
           </a>
           <p></p>
           <p class="mb-2">
-            <i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street,
-            New York, USA
+            <i class="fa fa-map-marker-alt text-primary mr-3"></i>Block A Ilemarun, Iwo Road, Ibadan.
           </p>
           <p class="mb-2">
-            <i class="fa fa-envelope text-primary mr-3"></i>info@example.com
+            <i class="fa fa-envelope text-primary mr-3"></i>trusterrandss@gmail.com
           </p>
           <p class="mb-0">
-            <i class="fa fa-phone-alt text-primary mr-3"></i>08029562281
+            <i class="fa fa-phone-alt text-primary mr-3"></i>+2348029562281
           </p>
         </div>
         <div class="col-lg-8 col-md-12">
@@ -497,20 +490,20 @@
             <div class="col-md-4 mb-5">
               <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-dark mb-2" href="index.html"
+                <a class="text-dark mb-2" href="/"
                   ><i class="fa fa-angle-right mr-2"></i>Home</a
                 >
-                <a class="text-dark mb-2" href="shop.html"
+                <a class="text-dark mb-2" href="/shop"
                   ><i class="fa fa-angle-right mr-2"></i>Our Shop</a
                 >
 
-                <a class="text-dark mb-2" href="cart.html"
+                <a class="text-dark mb-2" href="/cart"
                   ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
                 >
-                <a class="text-dark mb-2" href="checkout.html"
+                <a class="text-dark mb-2" href="/checkout"
                   ><i class="fa fa-angle-right mr-2"></i>Checkout</a
                 >
-                <a class="text-dark" href="contact.html"
+                <a class="text-dark" href="/contact"
                   ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
                 >
               </div>
@@ -518,22 +511,19 @@
             <div class="col-md-4 mb-5">
               <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-dark mb-2" href="index.html"
+                <a class="text-dark mb-2" href="/"
                   ><i class="fa fa-angle-right mr-2"></i>Home</a
                 >
-                <a class="text-dark mb-2" href="shop.html"
+                <a class="text-dark mb-2" href="/shop"
                   ><i class="fa fa-angle-right mr-2"></i>Our Shop</a
                 >
-                <a class="text-dark mb-2" href="detail.html"
-                  ><i class="fa fa-angle-right mr-2"></i>Shop Detail</a
-                >
-                <a class="text-dark mb-2" href="cart.html"
+                <a class="text-dark mb-2" href="/cart"
                   ><i class="fa fa-angle-right mr-2"></i>Shopping Cart</a
                 >
-                <a class="text-dark mb-2" href="checkout.html"
+                <a class="text-dark mb-2" href="/checkout"
                   ><i class="fa fa-angle-right mr-2"></i>Checkout</a
                 >
-                <a class="text-dark" href="contact.html"
+                <a class="text-dark" href="/contact"
                   ><i class="fa fa-angle-right mr-2"></i>Contact Us</a
                 >
               </div>
@@ -574,12 +564,8 @@
         <div class="col-md-6 px-xl-0">
           <p class="mb-md-0 text-center text-md-left text-dark">
             &copy;
-            <a class="text-dark font-weight-semi-bold" href="#">Trusterrand</a>.
-            All Rights Reserved. Designed by
-            <a class="text-dark font-weight-semi-bold" href="https://"></a
-            ><br />
-            Distributed By
-            <a href="https://" target="_blank"></a>
+            <a class="text-dark font-weight-semi-bold" href="#">Trusterrands</a>.
+            All Rights Reserved.
           </p>
         </div>
         <div class="col-md-6 px-xl-0 text-center text-md-right">
@@ -597,7 +583,217 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-   
+    <script>
+        // ************************************************
+  // Shopping Cart API
+  // ************************************************
+  
+  var shoppingCart = (function() {
+    // =============================
+    // Private methods and propeties
+    // =============================
+    cart = [];
+    
+    // Constructor
+    function Item(name, price, count) {
+      this.name = name;
+      this.price = price;
+      this.count = count;
+    }
+    
+    // Save cart
+    function saveCart() {
+      sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+    }
+    
+      // Load cart
+    function loadCart() {
+      cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+    }
+    if (sessionStorage.getItem("shoppingCart") != null) {
+      loadCart();
+    }
+    
+  
+    // =============================
+    // Public methods and propeties
+    // =============================
+    var obj = {};
+    
+    // Add to cart
+    obj.addItemToCart = function(name, price, count) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count ++;
+          saveCart();
+          return;
+        }
+      }
+      var item = new Item(name, price, count);
+      cart.push(item);
+      saveCart();
+    }
+    // Set count from item
+    obj.setCountForItem = function(name, count) {
+      for(var i in cart) {
+        if (cart[i].name === name) {
+          cart[i].count = count;
+          break;
+        }
+      }
+    };
+    // Remove item from cart
+    obj.removeItemFromCart = function(name) {
+        for(var item in cart) {
+          if(cart[item].name === name) {
+            cart[item].count --;
+            if(cart[item].count === 0) {
+              cart.splice(item, 1);
+            }
+            break;
+          }
+      }
+      saveCart();
+    }
+  
+    // Remove all items from cart
+    obj.removeItemFromCartAll = function(name) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart.splice(item, 1);
+          break;
+        }
+      }
+      saveCart();
+    }
+  
+    // Clear cart
+    obj.clearCart = function() {
+      cart = [];
+      saveCart();
+    }
+  
+    // Count cart 
+    obj.totalCount = function() {
+      var totalCount = 0;
+      for(var item in cart) {
+        totalCount += cart[item].count;
+      }
+      return totalCount;
+    }
+  
+    // Total cart
+    obj.totalCart = function() {
+      var totalCart = 0;
+      for(var item in cart) {
+        totalCart += cart[item].price * cart[item].count;
+      }
+      return Number(totalCart.toFixed(2));
+    }
+  
+    // List cart
+    obj.listCart = function() {
+      var cartCopy = [];
+      for(i in cart) {
+        item = cart[i];
+        itemCopy = {};
+        for(p in item) {
+          itemCopy[p] = item[p];
+  
+        }
+        itemCopy.total = Number(item.price * item.count).toFixed(2);
+        cartCopy.push(itemCopy)
+      }
+      return cartCopy;
+    }
+  
+    // cart : Array
+    // Item : Object/Class
+    // addItemToCart : Function
+    // removeItemFromCart : Function
+    // removeItemFromCartAll : Function
+    // clearCart : Function
+    // countCart : Function
+    // totalCart : Function
+    // listCart : Function
+    // saveCart : Function
+    // loadCart : Function
+    return obj;
+  })();
+  
+  
+  // *****************************************
+  // Triggers / Events
+  // ***************************************** 
+  // Add item
+  $('.add-to-cart').click(function(event) {
+    event.preventDefault();
+    var name = $(this).data('name');
+    var price = Number($(this).data('price'));
+    shoppingCart.addItemToCart(name, price, 1);
+    displayCart();
+  });
+  
+  // Clear items
+  $('.clear-cart').click(function() {
+    shoppingCart.clearCart();
+    displayCart();
+  });
+  
+  
+  function displayCart() {
+    var cartArray = shoppingCart.listCart();
+    var output = "";
+    for(var i in cartArray) {
+      output += "<tr>"
+        + "<td>" + cartArray[i].name + "</td>" 
+        + "<td>(" + cartArray[i].price + ")</td>"
+        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+        + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+        + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+        + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+        + " = " 
+        + "<td>" + cartArray[i].total + "</td>" 
+        +  "</tr>";
+    }
+    $('.show-cart').html(output);
+    $('.total-cart').html(shoppingCart.totalCart());
+    $('.total-count').html(shoppingCart.totalCount());
+  }
+  
+  // Delete item button
+  
+  $('.show-cart').on("click", ".delete-item", function(event) {
+    var name = $(this).data('name')
+    shoppingCart.removeItemFromCartAll(name);
+    displayCart();
+  })
+  
+  
+  // -1
+  $('.show-cart').on("click", ".minus-item", function(event) {
+    var name = $(this).data('name')
+    shoppingCart.removeItemFromCart(name);
+    displayCart();
+  })
+  // +1
+  $('.show-cart').on("click", ".plus-item", function(event) {
+    var name = $(this).data('name')
+    shoppingCart.addItemToCart(name);
+    displayCart();
+  })
+  
+  // Item count input
+  $('.show-cart').on("change", ".item-count", function(event) {
+     var name = $(this).data('name');
+     var count = Number($(this).val());
+    shoppingCart.setCountForItem(name, count);
+    displayCart();
+  });
+  
+  displayCart();
+  
+      </script>
     <link
       rel="script"
       href="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"
@@ -627,3 +823,30 @@
     
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
