@@ -19,3 +19,5 @@ slugify==0.0.1
 SQLAlchemy==1.4.32
 Unidecode==0.4.21
 Werkzeug==2.0.3
+
+simplejson~=3.17.6

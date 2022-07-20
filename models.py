@@ -93,3 +93,13 @@ class Category(db.Model):
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True, index=True)
+    uid = db.Column(db.Integer, db.ForeignKey('user.id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+    quantity = db.Column(db.Integer, default=1)
+
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}

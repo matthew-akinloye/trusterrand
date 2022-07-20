@@ -7,6 +7,7 @@ import hashlib
 
 from sqlalchemy import null
 
+from errands import pics_to_array
 from index import db, app
 from models import User, Products,Category
 from user_functions import check_user
@@ -18,8 +19,7 @@ def homepage():
     products = Products.query.all()
     categories = Category.query.all()
     # convert all product image strings to list
-    for product in products:
-        product.images = product.images.split(',')    
+    map(pics_to_array, products)
     return render_template('index.html', user_profile=user_profile, products=products, categories=categories)
 
 
@@ -48,6 +48,7 @@ def shop():
     for product in products:
         product.images = product.images.split(',')    
     return render_template('shop.html', user_profile=user_profile, products=products, categories=categories)
+
 
 @app.route('/dashboard')
 def dashboard():

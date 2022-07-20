@@ -12,6 +12,10 @@ from models import Category, Products
 fake = Faker()
 
 
+def pics_to_array(product):
+    return product.images.split(',')
+
+
 def delete_categories(amount):
     amount = int(amount)
     if amount == 0:
