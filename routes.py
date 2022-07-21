@@ -35,10 +35,6 @@ def contact():
 def cart():
     return render_template('cart.html')
 
-
-
-
-
 @app.route('/shop')
 def shop():
     user_profile = check_user()
