@@ -302,7 +302,18 @@
         <!-- Offer Start -->
 
         <!-- Offer End -->
-
+<p style=" width: 100%;
+                    margin-top: 0.25rem;
+                    font-size: 80%;
+                    color: #dc3545;">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <b>{{ message }}</b>
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </p>
         <!-- Products Start -->
         <div class="container-fluid pt-5">
           <div class="text-center mb-4">
@@ -337,7 +348,7 @@
                 <div
                   class="card-footer d-flex justify-content-between bg-light border"
                 >
-                  <a href="/shop" class="btn btn-sm text-dark p-0"
+                  <a href="/products/<handle>" class="btn btn-sm text-dark p-0"
                     ><i class="fas fa-eye text-primary mr-1"></i>View Detail</a
                   >
                   <a href="" class="add-to-cart"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add
