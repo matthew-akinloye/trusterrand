@@ -63,7 +63,7 @@ class Products(db.Model):
     views = db.Column(db.Integer, default=0)
 
     status = db.Column(db.String(10), default='active')
-
+    
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
